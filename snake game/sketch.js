@@ -7,13 +7,32 @@ function setup() {
     createCanvas(600,600);
     s = new Snake();
     frameRate(10);
-    food = createVector(random(width),random(height));
+    pickLocation(); //随机产生一个食物
+}
+
+function pickLocation(){
+    var cols = floor(width/scl);
+    var rows = floor(height/scl);
+    food = createVector(floor(random(cols)),floor(random(rows)));    
+    food.mult(scl);
+}
+
+//鼠标按下蛇的长度就会增加1 
+function mousePressed() {  
+  s.total++;
 }
 
 function draw() {
     background(51);
+    if(s.eat(food)){
+        pickLocation();
+    }
+    s.death();
     s.update();
     s.show();
+
+    fill(255, 0, 100);
+    rect(food.x,food.y,scl,scl);
 }
 
 function keyPressed(){
