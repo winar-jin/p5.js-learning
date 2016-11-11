@@ -4,6 +4,8 @@ var button;
 var slider;
 var nameP;
 var input;
+var paragraph;
+var paragraphs;
 function setup() {
 	canvas = createCanvas(200,200);
 	bgcolor = color(200);
@@ -17,6 +19,15 @@ function setup() {
 	// input.changed(changeText); //当输入框改变后按下了ENTER键触发该事件
 	input.input(changeText);   //当输入框里面只要一发生变化就会触发该事件
 	nameP.style("color","#ccc");
+
+	var paragraph = select("#unicorn");
+	paragraph.mouseOver(changeItsBg);
+	var paragraphs = selectAll("p");
+	for (var i = 0; i < paragraphs.length; i++) {
+		paragraphs[i].style("background","#ccc");
+	}
+	// var paragraph = select("#unicorn");
+	paragraph.style("background","#f0f");
 }
 function changeText() {
 	nameP.html(input.value());
@@ -29,6 +40,10 @@ function changeBgcolor() {
 // function mousePressed() {
 // 	changeBgcolor();
 // }
+
+function changeItsBg() {
+	this.style("background","#000");
+}
 
 function overpara() {
 	nameP.html("your mouse is over me !");
