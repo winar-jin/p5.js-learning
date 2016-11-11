@@ -14,8 +14,8 @@ function setup() {
 	input = createInput("type something");
 	nameP.mouseOver(overpara);
 	nameP.mouseOut(outpara);
-	// input.changed(changeText);
-	input.input(changeText);
+	// input.changed(changeText); //当输入框改变后按下了ENTER键触发该事件
+	input.input(changeText);   //当输入框里面只要一发生变化就会触发该事件
 	nameP.style("color","#ccc");
 }
 function changeText() {
