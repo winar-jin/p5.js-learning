@@ -20,6 +20,14 @@ function setup() {
 	input.input(changeText);   //当输入框里面只要一发生变化就会触发该事件
 	nameP.style("color","#ccc");
 
+	// for(var i =0;i<100;i++){
+	// 	var newp = createP("rainbow");
+	// 	newp.position(random(500),random(500));
+	// }
+
+	var aa = select("#aa");
+	aa.parent("#unicorn");
+
 	var paragraph = select("#unicorn");
 	paragraph.mouseOver(changeItsBg);
 	var paragraphs = selectAll("p");
