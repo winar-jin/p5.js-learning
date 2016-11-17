@@ -1,7 +1,19 @@
 var weather;
 function setup() {
 	createCanvas(400,400);
-	loadJSON("http://api.openweathermap.org/data/2.5/weather?q=Beijing,CN&APPID=eacb407a6f1517cc3ed33ba1b6485e2d",getData,"JSONP");
+	var host = "http://api.openweathermap.org/data/2.5/weather?q=";
+	var city = "Beijing,CN";
+	var appid = "&APPID=eacb407a6f1517cc3ed33ba1b6485e2d";
+	var subCity = select("#submit");
+	subCity.mousePressed(getWeather);
+	var cityInput = select("#city");
+
+
+	function getWeather() {
+		city = cityInput.value();
+		var path = host + city + appid;
+		loadJSON(path,getData,"JSONP");
+	}
 
 }
 
