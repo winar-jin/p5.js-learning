@@ -2,7 +2,7 @@ var circles = [];
 function setup() {
     createCanvas(600, 600);
     background(200);
-    var protection = 0;
+    var protection = 0; //保护，防止死循环，当圆圈数量过多的时候
     while (circles.length < 300) {
         var circle = {
             x: random(width),
